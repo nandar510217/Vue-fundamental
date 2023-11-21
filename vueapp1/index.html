@@ -32,6 +32,19 @@
                     <p>Age: {{person.age}}</p>
                 </div>
             </div>
+
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <h4>Binding Text and HTML</h4>
+                    <!-- Binding Text -->
+                    <h6 v-text="name"></h6>
+
+                    <!-- Binding HTML -->
+                    <p v-html="aTag"></p>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4"></div>
+            </div>
         </div>
     </div>
 
@@ -53,7 +66,12 @@
                     location: 'Monywa'    
                 })
 
-                return {title, para, myfun, name, person}
+                // Binding Text and HTML
+                const name = ref("Kelvin")
+
+                const aTag = ref('<a href="#">Contact</a>')
+
+                return {title, para, myfun, name, person, aTag}
             }
         })
         app.mount('#app')
