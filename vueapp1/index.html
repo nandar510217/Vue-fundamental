@@ -9,6 +9,24 @@
     <!-- Boostrap Link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <style>
+        .textColor {
+            color: red;
+        }
+        .text-success {
+            color: green;
+        }
+        .firstFont {
+            font-size: 30px;
+        }
+        .fontBold {
+            font-weight: 700;
+        }
+        .textInfo {
+            color:rgb(101, 23, 9);
+        }
+    </style>
 </head>
 <body>
 
@@ -41,11 +59,28 @@
 
                     <!-- Binding HTML -->
                     <p v-html="aTag"></p>
+
+                    <!-- Attribute Bindig -->
+                    <div :id="addId"></div>
+
+                    <!-- Boolean Attribute Bindiing -->
+                    <button :disabled="isBtnDisabled" class="">Submit</button>
+
+                    <!-- Class Binding -->
+                    <h4 :class="[color2, font1]" class="fontBold">Class Binding</h4>
+
+                    <!-- Bindig to Object -->
+                    <p :class="{textInfo:isActive}">Binding to Object</p>
+
+                    <!-- Style Binding -->
+
+
                 </div>
                 <div class="col-md-4"></div>
                 <div class="col-md-4"></div>
             </div>
         </div>
+    
     </div>
 
     <script>
@@ -68,10 +103,23 @@
 
                 // Binding Text and HTML
                 const name = ref("Kelvin")
-
                 const aTag = ref('<a href="#">Contact</a>')
 
-                return {title, para, myfun, name, person, aTag}
+                //Artibute Binding            
+                const addId = ref("attribute binding")
+
+                //Boolean Attribute Binding
+                const isBtnDisabled = ref(true)
+
+                //Class Binding
+                const color1 = ref('textColor')
+                const color2 = ref('text-success')
+                const font1 = ref('firstFont')
+
+                const isActive = ref(true)
+
+
+                return {title, para, myfun, name, person, aTag, addId, isBtnDisabled, color1, color2, font1, isActive}
             }
         })
         app.mount('#app')
