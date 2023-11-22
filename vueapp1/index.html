@@ -24,7 +24,7 @@
             font-weight: 700;
         }
         .textInfo {
-            color:rgb(101, 23, 9);
+            color:rgb(215, 60, 33);
         }
     </style>
 </head>
@@ -60,20 +60,23 @@
                     <!-- Binding HTML -->
                     <p v-html="aTag"></p>
 
-                    <!-- Attribute Bindig -->
+                    <!-- Attribute Binding -->
                     <div :id="addId"></div>
 
-                    <!-- Boolean Attribute Bindiing -->
+                    <!-- Boolean Attribute Binding -->
                     <button :disabled="isBtnDisabled" class="">Submit</button>
 
                     <!-- Class Binding -->
                     <h4 :class="[color2, font1]" class="fontBold">Class Binding</h4>
 
                     <!-- Bindig to Object -->
-                    <p :class="{textInfo:isActive}">Binding to Object</p>
+                    <h6 :class="{textInfo:isActive}">Binding to Object</h6>
 
                     <!-- Style Binding -->
-
+                    <!-- binding to object -->
+                    <p :style="{color:color3, fontSize:font2+'px'}">Style Binding  with objects</p>
+                    <!-- binding to array -->
+                    <p :style="[styleOne, styleTwo]">Style Binding with array</p>
 
                 </div>
                 <div class="col-md-4"></div>
@@ -115,11 +118,25 @@
                 const color1 = ref('textColor')
                 const color2 = ref('text-success')
                 const font1 = ref('firstFont')
-
+                //Binding to object
                 const isActive = ref(true)
 
+                //Style Binding
+                //binding to object
+                const color3 = ref('orange')
+                const font2 = ref('30')
+                //binding to array
+                const styleOne = reactive({
+                    color: 'blue',
+                    backgrounColor: 'gray'
+                })
+                const styleTwo = reactive({
+                    fontSize: '30px',
+                    fontWeight: 'bold',
+                })
 
-                return {title, para, myfun, name, person, aTag, addId, isBtnDisabled, color1, color2, font1, isActive}
+
+                return {title, para, myfun, name, person, aTag, addId, isBtnDisabled, color1, color2, font1, isActive, color3, font2, styleOne, styleTwo}
             }
         })
         app.mount('#app')
